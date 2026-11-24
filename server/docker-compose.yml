@@ -1,0 +1,8 @@
+services:
+  relay:
+    build: .
+    restart: unless-stopped
+    environment:
+      TOKEN: ${TOKEN:?set TOKEN in .env}
+    ports:
+      - "127.0.0.1:8080:8080" # only reachable by the host's Caddy
